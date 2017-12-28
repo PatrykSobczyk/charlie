@@ -67,4 +67,12 @@ public class ScenarioStep {
         }
         return false;
     }
+
+    public boolean doesStepStartWithActor(ArrayList<String> actors){
+        for( String actor : actors ){
+            if( this.text.startsWith(actor) )
+                return true;
+        }
+        return false;
+    }
 }

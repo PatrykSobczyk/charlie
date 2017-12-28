@@ -18,7 +18,7 @@ public class ScenarioTest {
         actors.add("Jan"); actors.add("Tomek");
         ScenarioHeader header = new ScenarioHeader("Header Title", actors);
         ScenarioStep step = new ScenarioStep("IF Test step numero uno", null);
-        ScenarioStep step2 = new ScenarioStep("Test step numero secondo", null);
+        ScenarioStep step2 = new ScenarioStep("Janek step numero secondo", null);
         ArrayList<ScenarioStep> scenarioSteps = new ArrayList<>();
         scenarioSteps.add(step);
         scenarioSteps.add(step2);
@@ -81,6 +81,14 @@ public class ScenarioTest {
         assertEquals(1, this.scenario.howManyStepsStartWithKeywords());
         this.setUpAdvancedScenario();
         assertEquals(2, this.scenario.howManyStepsStartWithKeywords());
+    }
+
+    @Test
+    public void stepsStartingWithActorsTest(){
+        this.setUpBasicScenario();
+        assertEquals(1, this.scenario.getStepsNotStartingWithActor().size());
+        this.setUpAdvancedScenario();
+        assertEquals(1, this.scenario.getStepsNotStartingWithActor().size());
     }
 
     @After

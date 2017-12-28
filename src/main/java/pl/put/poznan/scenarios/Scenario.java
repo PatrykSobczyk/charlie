@@ -59,4 +59,14 @@ public class Scenario {
         }
         return result;
     }
+
+    public ArrayList<ScenarioStep> getStepsNotStartingWithActor(){
+        ArrayList<ScenarioStep> result = new ArrayList<>();
+        for( ScenarioStep step : scenarioSteps ){
+            if( !step.doesStepStartWithActor(header.getActors()) ){
+                result.add(step);
+            }
+        }
+        return result;
+    }
 }
