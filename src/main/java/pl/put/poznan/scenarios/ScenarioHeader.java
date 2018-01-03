@@ -1,9 +1,10 @@
 package pl.put.poznan.scenarios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class ScenarioHeader {
+public class ScenarioHeader implements Serializable {
 
     // ScenarioHeader consists of its title and authors
     private String title;
@@ -42,4 +43,7 @@ public class ScenarioHeader {
         return resultBuilder.toString();
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
