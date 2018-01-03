@@ -1,8 +1,9 @@
 package pl.put.poznan.scenarios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ScenarioStep {
+public class ScenarioStep implements Serializable{
 
     private final static String[] KEYWORDS = {"IF","ELSE","FOR EACH"};
     // every step of scenario contains text but step can also consist of subscenarios
@@ -23,11 +24,11 @@ public class ScenarioStep {
     public String getText(){
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append(text);
+        resultBuilder.append("\n");
         for( Scenario subScenario : subScenarios ){
             resultBuilder.append("\n");
             resultBuilder.append(subScenario.getText());
         }
-        resultBuilder.append("\n");
         return resultBuilder.toString();
     }
 
@@ -74,5 +75,17 @@ public class ScenarioStep {
                 return true;
         }
         return false;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public ArrayList<Scenario> getSubScenarios() {
+        return subScenarios;
+    }
+
+    public void setSubScenarios(ArrayList<Scenario> subScenarios) {
+        this.subScenarios = subScenarios;
     }
 }
