@@ -56,6 +56,7 @@ public class Scenario implements Serializable {
         return resultBuilder.toString();
     }
 
+
     /**
      * Counts all steps, that is also those contained in subscenarios of counted steps
      * @return stemNo
